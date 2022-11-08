@@ -1,6 +1,7 @@
 package server.Domain;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "animal")
@@ -13,6 +14,10 @@ public class Animal {
     private String date;
     @Column
     private String origin;
+
+    @Column
+    @ManyToMany
+    private List<Product> products;
 
     public Animal(int weight, String date, String origin) {
         this.weight = weight;
@@ -56,5 +61,11 @@ public class Animal {
         this.origin = origin;
     }
 
+    public List<Product> getProducts() {
+        return products;
+    }
 
+    public void setProducts(List<Product> products) {
+        this.products = products;
+    }
 }

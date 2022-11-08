@@ -1,9 +1,6 @@
 package client;
 
-import animals.Animal;
-import animals.AnimalHandlerGrpc;
-import animals.AnimalReply;
-import animals.RequestAnimalsByProductId;
+import animals.*;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 
@@ -25,4 +22,20 @@ public class GrpcClient {
 
         return reply;
     }
+
+    public ProductReply productsInvolvedIn(int id){
+        ManagedChannel managedChannel = ManagedChannelBuilder.forAddress("localhost", 9090)
+                .usePlaintext().build();
+
+        AnimalHandlerGrpc.AnimalHandlerBlockingStub animalStub = AnimalHandlerGrpc
+                .newBlockingStub(managedChannel);
+
+        RequestProductsByAnimalId request = RequestProductsByAnimalId.newBuilder().setId(id).build();
+        ProductReply reply = animalStub.getProductsInvolved(request);
+        managedChannel.shutdown();
+
+        return reply;
+    }
+
+
 }

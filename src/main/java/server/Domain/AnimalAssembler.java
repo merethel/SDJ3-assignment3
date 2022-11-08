@@ -1,8 +1,6 @@
 package server.Domain;
 
 import animals.AnimalMessage;
-import com.google.protobuf.Message;
-
 public class AnimalAssembler {
 
     public static Animal fromMessageToAnimal(AnimalMessage animalToAssemble){

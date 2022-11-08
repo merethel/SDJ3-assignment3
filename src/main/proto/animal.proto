@@ -12,8 +12,8 @@ service AnimalHandler {
 
 //create animal
 message AnimalMessage{
-  int64 id = 1;
-  int64 weight = 2;
+  int32 id = 1;
+  int32 weight = 2;
   string date = 3;
   string origin = 4;
 }
@@ -41,6 +41,5 @@ message RequestProductsByAnimalId{
 
 //Reply full details about products
 message ProductReply{
-  int32 id = 1;
-  string date = 2;
+  repeated ProductMessage products = 1;
 }

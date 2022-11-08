@@ -2,12 +2,11 @@ package server.Domain;
 
 import animals.AnimalMessage;
 import animals.ProductMessage;
-
 import java.util.List;
 
 public class ProductAssembler {
 
-    public Product fromMessageToProduct(ProductMessage productToAssemble){
+    public static Product fromMessageToProduct(ProductMessage productToAssemble){
         List<Animal> animals = null;
 
         for (AnimalMessage animalMessage:productToAssemble.getAnimalIdsList()) {
@@ -23,7 +22,7 @@ public class ProductAssembler {
         return product;
     }
 
-    public ProductMessage fromProductToMessage(Product product){
+    public static ProductMessage fromProductToMessage(Product product){
             List<AnimalMessage> animalList = null;
 
             for (Animal animal: product.getAnimals()) {

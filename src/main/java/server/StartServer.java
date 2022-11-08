@@ -4,13 +4,9 @@ import io.grpc.Server;
 import io.grpc.ServerBuilder;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
-import org.springframework.boot.SpringApplication;
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import server.Domain.Animal;
 import server.Domain.Product;
 
-
-@SpringBootApplication
 public class StartServer {
     public static void main(String[] args) throws Exception {
 
