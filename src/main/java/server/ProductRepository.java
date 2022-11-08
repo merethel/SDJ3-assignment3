@@ -1,12 +1,10 @@
 package server;
 
+import animals.Animal;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-import server.Domain.Animal;
+import server.Domain.Product;
 
 @Repository
-public interface AnimalRepository extends JpaRepository<Animal, Long>{
+public interface ProductRepository  extends JpaRepository<Product, Long> {
 }
-
-
-

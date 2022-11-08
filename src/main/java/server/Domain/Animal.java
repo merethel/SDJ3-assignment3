@@ -1,4 +1,4 @@
-package shared;
+package server.Domain;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -13,11 +13,13 @@ public class Animal {
     public String origin;
 
     public Animal(){}
-    Animal(int weight, String date, String origin) {
+    public Animal(int weight, String date, String origin) {
         this.weight = weight;
         this.date = date;
         this.origin = origin;
     }
+
+
 
     public int getWeight() {
         return weight;

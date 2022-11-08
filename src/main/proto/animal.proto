@@ -6,16 +6,41 @@ option java_multiple_files = true;
 package animals;
 
 service AnimalHandler {
-  rpc getAllRegistrationNumbers()
+  rpc getAnimalsInvolved(RequestAnimalsByProductId) returns (AnimalReply);
+  rpc getProductsInvolved(RequestProductsByAnimalId) returns (ProductReply);
 }
 
-message AnimalRequest{
-  int32 id = 1;
-  int32 weight = 2;
+//create animal
+message Animal{
+  int64 id = 1;
+  int64 weight = 2;
   string date = 3;
   string origin = 4;
 }
 
-message ProductRequest{
+//Create product
+message Product{
+  int32 id = 1;
+  string date = 2;
+  repeated Animal animalIds = 3;
+}
 
+//Request animals involved in a product
+message RequestAnimalsByProductId{
+  int32 id = 1;
+}
+//Reply full details animal involved in a product
+message AnimalReply{
+  repeated Animal animals = 1;
+}
+
+//Request products an animal has been involved in
+message RequestProductsByAnimalId{
+  int32 id = 1;
+}
+
+//Reply full details about products
+message ProductReply{
+  int32 id = 1;
+  string date = 2;
 }
