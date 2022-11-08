@@ -1,15 +1,16 @@
 package server.Domain;
 
-import animals.ProductOrBuilder;
+import animals.AnimalMessage;
+import animals.ProductMessage;
 
 import java.util.List;
 
 public class ProductAssembler {
 
-    public Product fromMessageToProduct(animals.Product productToAssemble){
+    public Product fromMessageToProduct(ProductMessage productToAssemble){
         List<Animal> animals = null;
 
-        for (animals.Animal animalMessage:productToAssemble.getAnimalIdsList()) {
+        for (AnimalMessage animalMessage:productToAssemble.getAnimalIdsList()) {
             Animal animal = AnimalAssembler.fromMessageToAnimal(animalMessage);
             animals.add(animal);
         }
@@ -22,15 +23,15 @@ public class ProductAssembler {
         return product;
     }
 
-    public animals.Product fromProductToMessage(Product product){
-            List<animals.Animal> animalList = null;
+    public ProductMessage fromProductToMessage(Product product){
+            List<AnimalMessage> animalList = null;
 
             for (Animal animal: product.getAnimals()) {
-                animals.Animal animalMessage = AnimalAssembler.fromAnimalToMessage(animal);
+                AnimalMessage animalMessage = AnimalAssembler.fromAnimalToMessage(animal);
                 animalList.add(animalMessage);
             }
 
-            animals.Product message = animals.Product.newBuilder()
+            ProductMessage message = ProductMessage.newBuilder()
                 .setId(product.getProductNumber())
                 .setDate(product.getDate())
                 .addAllAnimalIds(animalList).build();

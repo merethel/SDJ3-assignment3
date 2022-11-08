@@ -1,10 +1,11 @@
 package server.Domain;
 
+import animals.AnimalMessage;
 import com.google.protobuf.Message;
 
 public class AnimalAssembler {
 
-    public static Animal fromMessageToAnimal(animals.Animal animalToAssemble){
+    public static Animal fromMessageToAnimal(AnimalMessage animalToAssemble){
         Animal animal = new Animal(
                 (int) animalToAssemble.getWeight(),
                 animalToAssemble.getDate(),
@@ -13,8 +14,8 @@ public class AnimalAssembler {
         return animal;
     }
 
-    public static animals.Animal fromAnimalToMessage(Animal animal){
-        animals.Animal message = animals.Animal.newBuilder()
+    public static AnimalMessage fromAnimalToMessage(Animal animal){
+        AnimalMessage message = AnimalMessage.newBuilder()
                 .setId(animal.getRegistrationNumber())
                 .setWeight(animal.getWeight())
                 .setOrigin(animal.getOrigin())

@@ -1,24 +1,27 @@
 package server.Domain;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity
+@Table(name = "animal")
 public class Animal {
-    private @Id
-    @GeneratedValue Long registrationNumber;
-    public int weight;
-    public String date;
-    public String origin;
+    @Id @GeneratedValue @Column
+    private  int registrationNumber;
+    @Column
+    private int weight;
+    @Column
+    private String date;
+    @Column
+    private String origin;
 
-    public Animal(){}
     public Animal(int weight, String date, String origin) {
         this.weight = weight;
         this.date = date;
         this.origin = origin;
     }
 
+    public Animal() {
+    }
 
 
     public int getWeight() {
@@ -29,7 +32,7 @@ public class Animal {
         return date;
     }
 
-    public Long getRegistrationNumber() {
+    public int getRegistrationNumber() {
         return registrationNumber;
     }
 
@@ -45,7 +48,7 @@ public class Animal {
         this.date = date;
     }
 
-    public void setRegistrationNumber(Long registrationNumber) {
+    public void setRegistrationNumber(int registrationNumber) {
         this.registrationNumber = registrationNumber;
     }
 

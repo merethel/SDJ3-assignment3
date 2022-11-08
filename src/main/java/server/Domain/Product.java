@@ -4,13 +4,18 @@ import javax.persistence.*;
 import java.util.List;
 
 @Entity
+@Table(name = "Product")
 public class Product {
-    private @Id
-    @GeneratedValue int productNumber;
-    public String date;
+    @Id
+    @Column
+    @GeneratedValue
+    private  int productNumber;
+    @Column
+    private String date;
 
-    @Transient
-    public List<Animal> animals;
+    @Column
+    @ManyToMany
+    private List<Animal> animals;
 
     public Product() {
     }
