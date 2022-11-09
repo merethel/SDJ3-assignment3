@@ -15,8 +15,8 @@ public class Animal {
     @Column
     private String origin;
 
-    @Column
-    @ManyToMany
+    @ManyToMany(mappedBy = "animals")
+
     private List<Product> products;
 
     public Animal(int weight, String date, String origin) {

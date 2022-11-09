@@ -2,10 +2,8 @@ package server;
 
 import animals.*;
 import io.grpc.stub.StreamObserver;
-import org.hibernate.Criteria;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.hibernate.criterion.Restrictions;
 import server.Domain.Animal;
 import server.Domain.AnimalAssembler;
 import server.Domain.Product;

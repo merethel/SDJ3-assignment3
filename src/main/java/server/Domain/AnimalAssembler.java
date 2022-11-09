@@ -5,7 +5,7 @@ public class AnimalAssembler {
 
     public static Animal fromMessageToAnimal(AnimalMessage animalToAssemble){
         Animal animal = new Animal(
-                (int) animalToAssemble.getWeight(),
+                animalToAssemble.getWeight(),
                 animalToAssemble.getDate(),
                 animalToAssemble.getOrigin()
         );

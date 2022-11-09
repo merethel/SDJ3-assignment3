@@ -1,13 +1,23 @@
 package client;
 
+import java.util.Scanner;
+
 public class StartClient {
     public static void main(String[] args) {
         GrpcClient client = new GrpcClient();
-        System.out.println(client.involvedAnimals(19).toString());
-        System.out.println(client.involvedAnimals(20).toString());
-        System.out.println(client.involvedAnimals(21).toString());
+
+        Scanner keyboard = new Scanner(System.in);
+
+        System.out.println("Getting animals involved in a product from a product ID");
+        System.out.println("Write a Product id that exists in the database");
+
+        System.out.println(client.involvedAnimals(keyboard.nextInt()));
 
         System.out.println("------------------------------------------------");
-        System.out.println(client.productsInvolvedIn(11));
+
+        System.out.println("Getting products that an animal is involved in from an animal ID");
+        System.out.println("Write an animal id that exists in the database");
+
+        System.out.println(client.productsInvolvedIn(keyboard.nextInt()));
     }
 }

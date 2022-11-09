@@ -2,12 +2,15 @@ package server.Domain;
 
 import animals.AnimalMessage;
 import animals.ProductMessage;
+import io.netty.handler.ipfilter.AbstractRemoteAddressFilter;
+
+import java.util.ArrayList;
 import java.util.List;
 
 public class ProductAssembler {
 
     public static Product fromMessageToProduct(ProductMessage productToAssemble){
-        List<Animal> animals = null;
+        List<Animal> animals = new ArrayList<>();
 
         for (AnimalMessage animalMessage:productToAssemble.getAnimalIdsList()) {
             Animal animal = AnimalAssembler.fromMessageToAnimal(animalMessage);
@@ -23,7 +26,7 @@ public class ProductAssembler {
     }
 
     public static ProductMessage fromProductToMessage(Product product){
-            List<AnimalMessage> animalList = null;
+            List<AnimalMessage> animalList = new ArrayList<>();
 
             for (Animal animal: product.getAnimals()) {
                 AnimalMessage animalMessage = AnimalAssembler.fromAnimalToMessage(animal);

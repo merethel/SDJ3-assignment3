@@ -13,8 +13,10 @@ public class Product {
     @Column
     private String date;
 
-    @Column
+
     @ManyToMany
+    @JoinTable(name="product_animal", joinColumns = @JoinColumn(name="fk_product"), inverseJoinColumns = @JoinColumn(name="fk_animal"))
+
     private List<Animal> animals;
 
     public Product() {
